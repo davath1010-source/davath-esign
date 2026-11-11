@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Davath eSign — sign PDF documents online.">
+  <title>Davath eSign</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">✍</span><span>Davath <b>eSign</b></span></a>
+    <div class="top-actions">
+      <select id="language" aria-label="Language"><option value="en">English</option><option value="km">ខ្មែរ</option></select>
+      <span class="free-pill">FREE</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow" data-i18n="eyebrow">SIMPLE • SECURE • FREE</p>
+        <h1 data-i18n="headline">Sign documents.<br><em>Anywhere.</em></h1>
+        <p class="lead" data-i18n="lead">Add your signature to a PDF in a few simple steps. No Premium plan. No account required for this starter version.</p>
+        <div class="hero-points"><span>✓ PDF signing</span><span>✓ English & Khmer UI</span><span>✓ Free to use</span></div>
+      </div>
+      <div class="hero-card">
+        <div class="card-heading"><div><span class="mini-label" data-i18n="workspace">YOUR WORKSPACE</span><h2 data-i18n="create">Create a signature</h2></div><span class="step">01 / 03</span></div>
+        <label class="upload-zone" for="pdfFile">
+          <span class="upload-icon">↑</span>
+          <strong data-i18n="uploadTitle">Choose a PDF document</strong>
+          <small data-i18n="uploadHint">PDF files only · Maximum 15 MB</small>
+          <span class="choose-btn" data-i18n="browse">Browse files</span>
+        </label>
+        <input id="pdfFile" type="file" accept="application/pdf,.pdf" hidden>
+        <p id="fileStatus" class="status" aria-live="polite" data-i18n="noFile">No document selected</p>
+        <div class="divider"><span data-i18n="or">OR</span></div>
+        <label class="field-label" for="typedName" data-i18n="typedLabel">Type your name</label>
+        <input id="typedName" class="text-input" type="text" placeholder="e.g. Davath Chea" maxlength="60">
+        <p class="help" data-i18n="typedHelp">This creates a stylized text signature.</p>
+        <button id="prepareBtn" class="primary-btn" disabled data-i18n="prepare">Continue to sign →</button>
+      </div>
+    </section>
+
+    <section id="signSection" class="sign-section hidden">
+      <div class="section-title"><div><p class="eyebrow" data-i18n="step2">STEP 2</p><h2 data-i18n="drawTitle">Create your signature</h2></div><button id="clearBtn" class="text-btn" data-i18n="clear">Clear</button></div>
+      <div class="signature-wrap"><canvas id="signatureCanvas" width="900" height="260" aria-label="Signature drawing area"></canvas></div>
+      <p class="help" data-i18n="drawHelp">Use your finger, mouse, or trackpad to draw. Or use the typed name above.</p>
+      <div class="sign-actions"><button id="backBtn" class="secondary-btn" data-i18n="back">Back</button><button id="downloadBtn" class="primary-btn" data-i18n="download">Apply signature & download PDF ↓</button></div>
+      <p id="signStatus" class="status" aria-live="polite"></p>
+    </section>
+
+    <section class="features">
+      <div><span class="feature-icon">▤</span><h3 data-i18n="f1">Sign PDF files</h3><p data-i18n="f1d">Add a handwritten or typed signature to your document.</p></div>
+      <div><span class="feature-icon">⌁</span><h3 data-i18n="f2">Simple workflow</h3><p data-i18n="f2d">Choose a file, create a signature, and download the result.</p></div>
+      <div><span class="feature-icon">◎</span><h3 data-i18n="f3">Free workspace</h3><p data-i18n="f3d">No Premium plan or payment required.</p></div>
+    </section>
+  </main>
+  <footer><span>© <span id="year"></span> Davath eSign</span><span data-i18n="footer">Your documents stay in this browser during signing.</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
